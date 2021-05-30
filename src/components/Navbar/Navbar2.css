@@ -4,10 +4,10 @@ ul {
     padding: 0;
   }
   
-  a {
+  /* a {
     color: var(--text-color);
     text-decoration: none;;
-  }
+  } */
   
   .navbar {
     height: var(--nav-size);

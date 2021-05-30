@@ -34,7 +34,7 @@ function ProductScreen(props) {
 
     return <div> 
     <div className="back-to-result"> 
-    <Link to='/'> Back to result</Link>
+    <Link to='/products'> Back to result</Link>
     </div>
     <div className='details'> 
     <div className ='details-image'>
