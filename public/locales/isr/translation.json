@@ -5,4 +5,50 @@
     "Why": {
         "1": "בישביל זה"
     }
+    ,
+  "Bonjour a tous merci de votre visite bienvenue": {
+    "1": "שלום לכולם תודה על ביקורך בברכה"
+  }
+
+
+
+
+ 
+
+
+  
+  ,
+  "Please sign in":{
+    "1": "אנא היכנס"
+  },
+  "Email Adress":{
+    "2": "כתובת דוא'ל"
+  },
+  "Password":{
+    "3": "סיסמה"
+  },
+  "Remember me":{
+    "4": "זכור אותי"
+  },
+  "Sign in":{
+    "5": "להתחבר"
+
+  },
+  "Identifiant":{
+    "7": "מזהה"
+
+  },
+  "Bienvenue sur mon projet pas fini":{
+    "3": "ברוך הבא לפרויקט הלא גמור שלי "
+  } ,
+  "En theorie il devrait y avoir un register mais le plan a echouer du coup pour ce login":{
+    "4": "בתיאוריה צריך להיות רישום אבל התוכנית נכשלה פתאום עבור הכניסה הזו"
+  },
+  "Shalom les gens test traduction" : "אנשי שלום בודקים תרגום"
+
+,
+"La page reports qui se trouvant dans le burger en haut a gauche est un test" : "דף הדוחות בהמבורגר בצד שמאל למעלה הוא מבחן"
+
 }
+
+

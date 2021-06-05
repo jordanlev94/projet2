@@ -4,5 +4,49 @@
   },
   "Why": {
       "1": "收看此视频"
+  },
+  "Bonjour a tous merci de votre visite bienvenue": {
+    "1": "皆様こんにちは ご来店ありがとうございます"
   }
-}
+  
+  
+
+  
+  
+  ,
+  "Please sign in":{
+    "1": "サインインしてください"
+  } ,
+  "Email Adress":{
+    "2": "電子メールアドレス"
+  },
+  "Password":{
+    "3": "パスワード"
+  },
+  "Remember me":{
+    "4": "私を覚えてますか"
+  },
+  "Sign in":{
+    "5": "サインイン"
+
+  },
+  "Identifiant":{
+    "7": "識別子"
+
+  },
+  "Bienvenue sur mon projet pas fini":{
+    "3": "未完成のプロジェクトへようこそ"
+  } ,
+  "En theorie il devrait y avoir un register mais le plan a echouer du coup pour ce login":{
+    "4": "理論上はレジスターがあるはずなのに、今回のログインで突然計画が失敗した"
+  }
+  ,
+  "Shalom les gens test traduction": "シャロームの人々のテスト翻訳"
+    
+  ,
+  "La page reports qui se trouvant dans le burger en haut a gauche est un test" : "左上のハンバーガーのレポートページはテストです"
+  
+  }
+  
+
+  

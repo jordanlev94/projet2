@@ -1,0 +1,30 @@
+.Text1home{
+    text-align: center;
+    justify-content: center;
+ 
+    color:turquoise;
+   padding-top: 210px;
+    
+}
+
+.home{
+    background:   url("https://cdn.shopify.com/s/files/1/0006/4353/0817/files/BANNIERESNKRSmobile_1.jpg?10583890587987930071");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    height: 310px;
+}
+  .mdp1{
+      color: black;
+  }
+  .mdp2{
+    color: black;
+}
+
+.NameID{
+    color: black;
+}
+
+
+.mdp3{
+    color: black;
+}

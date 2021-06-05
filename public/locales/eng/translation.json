@@ -7,5 +7,53 @@
     },
     "Reports": {
         "1": "reportereuwwwwwww"
+    },
+  "Bonjour a tous merci de votre visite bienvenue": {
+    "1": " Hello everyone thank you for your visit welcome "
     }
-}
+    
+    
+    
+   
+    
+    
+    ,
+  "Please sign in":{
+    "1": "Please sign in"
+  }
+  ,
+  "Email Adress":{
+    "2": "Email adress"
+  },
+  "Password":{
+    "3": "Password"
+  },
+  "Remember me":{
+    "4": "Remember me"
+  },
+  "Sign in":{
+    "5": "Sign in"
+
+  },
+  "Identifiant":{
+    "7": "ID"
+
+  },
+  "Bienvenue sur mon projet pas fini":{
+    "3": "Welcome to my unfinished project"
+  }
+  ,
+  "En theorie il devrait y avoir un register mais le plan a echouer du coup pour ce login":{
+    "4": "In theory there should be a register but the plan has failed suddenly for this login"
+  }
+  
+  ,
+  "Shalom les gens test traduction" : "Shalom people test translation"
+    
+
+  ,
+  "La page reports qui se trouvant dans le burger en haut a gauche est un test" : "The reports page in the burger at the top left is a test "
+  
+  }
+  
+

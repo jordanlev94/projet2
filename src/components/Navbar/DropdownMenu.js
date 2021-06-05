@@ -69,7 +69,7 @@ function DropdownMenu() {
           </div>
           <div onClick={() => handleClick("chi")}>
             {" "}
-            <DropdownItem leftIcon={<JAPIcon />}> Chinois</DropdownItem>
+            <DropdownItem leftIcon={<JAPIcon />}> Japonais</DropdownItem>
           </div>
           <div onClick={() => handleClick("isr")}>
             {" "}

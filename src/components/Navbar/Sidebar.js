@@ -40,17 +40,20 @@ function Sidebar() {
                 </li>
               );
             })}
-            {context.uid ? (
+            {context.islog ? (
               <li className="nav-text">
-                <div onClick={() => context.setUid("")}>
-                  <IoIcons.IoMdHelpCircle />
+                <div
+                  className="logoutcss"
+                  onClick={() => context.setIslog(false)}
+                >
+                  <AiIcons.AiOutlineTeam />
                   <span>{"Logout"}</span>
                 </div>
               </li>
             ) : (
               <li className="nav-text">
                 <Link to={"/login"}>
-                  <IoIcons.IoMdHelpCircle />
+                  <AiIcons.AiOutlineTeam />
                   <span>{"Login"}</span>
                 </Link>
               </li>

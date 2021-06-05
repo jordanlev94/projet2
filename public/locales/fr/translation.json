@@ -8,5 +8,47 @@
     "Reports": {
         "1": "reportereuh"
     }
+    ,
+    "Bonjour a tous merci de votre visite bienvenue": {
+      "1": "Bonjour a tous merci de votre visite bienvenue"
+    }
+    
+    
+    
+    
+    
+    ,
+    "Please sign in":{
+      "1": "Veuillez vous connecter"
+    }  ,
+    "Email Adress":{
+      "2": "Adresse Email"
+    },
+    "Password":{
+      "3": "Mot de passe"
+    },
+  "Remember me":{
+    "4": "Se rappeler de moi"
+  },
+  "Sign in":{
+    "5": "Se connecter"
+
+  },
+  "Identifiant":{
+    "7": "Identifiant"
+
+  },
+  "Bienvenue sur mon projet pas fini":{
+    "3": "Bienvenue sur mon projet pas fini"
+  } ,
+  "En theorie il devrait y avoir un register mais le plan a echouer du coup pour ce login":{
+    "4": "En théorie il devrait y avoir un register mais le plan a échouer du coup pour ce login"
+  },
+  "Shalom les gens test traduction": "Shalom les gens test traduction"
+    
+,
+"La page reports qui se trouvant dans le burger en haut a gauche est un test" : "La page reports qui se trouvant dans le burger en haut a gauche est un test"
 
 }
+
+

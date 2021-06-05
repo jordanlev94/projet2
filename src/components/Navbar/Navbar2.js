@@ -4,15 +4,17 @@ import { ReactComponent as MessengerIcon } from "../icons/messenger.svg";
 import { ReactComponent as FlecheIcon } from "../icons/caret.svg";
 import { ReactComponent as PanierIcon } from "../icons/panier.svg";
 import { ReactComponent as WorldIcon } from "../icons/world-grid.svg";
-// import { ReactComponent as CogIcon } from '../icons/cog.svg';
-// import { ReactComponent as ChevronIcon } from '../icons/chevron.svg';
+import { ReactComponent as ProfilIcon } from "../icons/profile.svg";
+import { ReactComponent as ChevronIcon } from "../icons/chevron.svg";
 // import { ReactComponent as ArrowIcon } from '../icons/arrow.svg';
 // import { ReactComponent as BoltIcon } from '../icons/bolt.svg';
 // import { ReactComponent as ProfilIcon } from '../icons/user.svg';
-import React, { useState } from "react";
+
 import DropdownMenu from "./DropdownMenu";
 import "./DropdownMenu.css";
 import { Link } from "react-router-dom";
+import { Context } from "../../ContextProvider";
+import React, { useState, useContext } from "react";
 
 function Navbar3(props) {
   return (
@@ -21,6 +23,7 @@ function Navbar3(props) {
     </nav>
   );
 }
+
 
 function NavItem(props) {
   const [open, setOpen] = useState(false);
@@ -35,18 +38,36 @@ function NavItem(props) {
 }
 
 function Navbar2() {
+  const context = useContext(Context);
+
+  
+  function functiondeco(params) {
+    context.setIslog(false);
+  }
   return (
     <Navbar3>
       <div className="rightt">
-      <Link style={{marginBottom:"40px"}} to="/cart"> <NavItem icon={<PanierIcon />}>
-           
-        </NavItem></Link>
+        {context.islog && (
+          <Link style={{ marginTop: "13px" }} to="/cart">
+            {" "}
+            <NavItem icon={<PanierIcon />}></NavItem>
+          </Link>
+        )}
 
-        <NavItem icon={<MessengerIcon />} />
+{!context.islog && (
+          <Link style={{ marginTop: "13px" }} to="/login">
+            {" "}
+            <NavItem icon={<ProfilIcon />} />
+          </Link>
+         )}
 
-        <NavItem icon={<WorldIcon />}>
-          <DropdownMenu />
-        </NavItem>
+
+         
+        <div className="navi18 " style={{ marginTop: "13px" }}>
+          <NavItem icon={<WorldIcon />}>
+            <DropdownMenu />
+          </NavItem>
+        </div>
       </div>
     </Navbar3>
   );

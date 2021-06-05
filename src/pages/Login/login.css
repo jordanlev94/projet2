@@ -1,0 +1,89 @@
+.okok{
+    
+    margin-left: 30px;
+}
+
+.okokok{
+    
+    margin-left: 30px;
+}
+
+.form-signinn{
+    font-weight: 400!important;
+    margin-bottom: 1rem!important;
+    text-align: center;
+    border: black 1px solid;
+ margin-top: 20px;
+}
+
+input,
+.btn{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  border-radius: 1px;
+  background-color: #ffffff;
+
+}
+
+.HeaderSignin{
+    margin-bottom: 20px;
+}
+
+.emailtext{
+    text-align: center;
+}
+
+.passwordinput{
+    text-align: center;
+}
+
+
+.inputpassword{
+    margin-top: 6px;
+          min-width: 18em;
+          height: 37px;
+          padding: 0px 10px;
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          background-color: #f3f3f3;
+          border: 0;
+          border-radius: 4px;
+          margin-bottom: 31px;
+}
+.emailtext{
+    margin-top: 6px;
+    min-width: 18em;
+    height: 37px;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    background-color: #f3f3f3;
+    border: 0;
+    border-radius: 4px;
+    margin-bottom: 31px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.errorpassword{
+color: red 
+
+
+;}
+
+
+.btn{
+    
+}

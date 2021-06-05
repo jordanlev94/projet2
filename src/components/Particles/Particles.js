@@ -26,18 +26,18 @@ import Particles from 'react-particles-js';
 	            "image": [
 	                {
 	                    "src": "/react.cd2ab268.svg",
-	                    "height": 20,
-	                    "width": 23
+	                    "height": 40,
+	                    "width": 43
 	                },
 	                {
 	                    "src": "/k8s.2d579d24.svg",
-	                    "height": 20,
-	                    "width": 20
+	                    "height": 40,
+	                    "width": 40
 	                },
 	                {
 	                    "src": "/code.b3b4c4f4.png",
-	                    "height": 20,
-	                    "width": 20
+	                    "height": 30,
+	                    "width": 30
                     }
                     ,
 	                {

@@ -9,12 +9,18 @@ justify-content: space-between;
 }
 
 .i18icon{
-    padding-top: 10px;
+  padding-top: 10px;
 
 position: relative;
-        font-size: 3rem;
-        background: none;
-      cursor: pointer;
-      background-color: var(--bg);
-      position: static;
+      font-size: 3rem;
+      background: none;
+    cursor: pointer;
+    background-color: var(--bg);
+    position: static;
+}
+
+.logo{
+  z-index: 2;
+  padding-right: 100px;
+
 }

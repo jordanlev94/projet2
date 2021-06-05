@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +11,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-.home,
+
 .reports,
 .products {
   display: flex;
@@ -15,6 +19,7 @@
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+
 }
 
 .border-danger{
@@ -22,6 +27,4 @@
 }
 
 
-.home{
-  background-color: #f0f7ff;
-}
+

@@ -1,8 +1,8 @@
 import React from 'react'
-import img1 from '../../images/slide1.png'
-import img3 from '../../images/slide2.png'
-import img4 from '../../images/slide3.png'
-import img5 from '../../images/slide4.png'
+import img1 from './img/slide1.png'
+import img3 from './img/slide2.png'
+import img4 from './img/slide3.png'
+import img5 from './img/slide4.png'
 import { Slide } from  'react-slideshow-image'
 import './Slide.css'
 

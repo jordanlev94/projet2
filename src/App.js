@@ -9,7 +9,8 @@ import ProductScreen from '../src/components/Product/ProductScreen'
 import Login from './pages/Login/login';
 import Cart from './pages/Cart';
 import ContextProvider from './ContextProvider'
-
+import Contact from './pages/contact';
+import Signup from './pages/Login/registerpage'
 const initialState = {user: {}};
 
 function reducer(state, action) {
@@ -33,7 +34,9 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/reports' component={Reports} />
             <Route path='/products' component={Products} />
+            <Route path='/contact' component={Contact} />
             <Route path='/login' component={Login} />
+            <Route path='/register' component={Signup} />
             <Route path="/product/:id"component ={ProductScreen}/>
             <Route path="/cart"component ={Cart}/>
             
