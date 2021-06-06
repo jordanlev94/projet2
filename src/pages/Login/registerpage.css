@@ -1,0 +1,50 @@
+.containerr{
+    border: grey 2px solid;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 5px;
+
+}
+
+input,
+.btn1{
+ 
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  border-radius: 1px;
+  background-color: #ffffff;
+
+
+}
+
+.form-groupinput{
+    border: solid black 1px;
+    border-radius: 20px;
+    margin: 10px;
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.row{
+    text-align: center;
+}
+
+.btn1:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+
+.btn1{
+    margin: 0px 75px;
+margin-left: 195px;
+}
+.headtext{
+    text-align: center;
+}

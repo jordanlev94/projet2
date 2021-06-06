@@ -114,7 +114,7 @@ const Identification = () => {
           <form className="form-signinn">
             <h1 className="HeaderSignin">{t("Please sign in.1")}</h1>
 
-            <h1 className="inputUsername">{t("Identifiant.7")}</h1>
+            <h2 className="inputUsername">{t("Identifiant.7")}</h2>
             <input
               type="text"
               id="inputUsername"
@@ -126,7 +126,7 @@ const Identification = () => {
               autofocus
             />
 
-            <h1 className="inputPassword">{t("Password.3")}</h1>
+            <h2 className="inputPassword">{t("Password.3")}</h2>
             <input
               type="password"
               id="inputPassword"
@@ -146,7 +146,7 @@ const Identification = () => {
               <input type="checkbox" value="remember-me" />
             </div>
             <button
-              className="btn"
+              className="btnn"
               type="submit"
               onClick={onSubmit}
               disabled={password === ""}
@@ -166,7 +166,7 @@ const Identification = () => {
 
 
 
-      <div>   <Link to={"/register"}>TEST SINSCRIRE </Link>  </div>
+    <div className='registercss'>   <Link to={"/register"}>S'INSCRIRE </Link>  </div>
 
     </div>
 

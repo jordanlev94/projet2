@@ -23,13 +23,13 @@ const Navi18 = () => {
           
         </header>
           <button onClick={()=>handleClick('fr')} >
-            FRANCAIS TONTON
+            FRANCAIS
           </button>
           <button onClick={()=>handleClick('ko')} >
             Korean
           </button>
           <button onClick={()=>handleClick('chi')} >
-            Chinese
+           JAP
          </button>
          <button onClick={()=>handleClick('eng')} >
             eng

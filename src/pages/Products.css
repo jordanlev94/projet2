@@ -188,3 +188,10 @@
       height: 41px;
       position: relative;
   }
+  .cardtot{
+    border: black 1px solid;
+   justify-content: left;
+    border-radius:initial;
+    align-items: center;
+
+    }

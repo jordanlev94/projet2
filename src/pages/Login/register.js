@@ -1,29 +1,27 @@
 var request = require("request");
 
-export default function registerCB(email, password, phone, fName) {
+export default function registerCB(Email, password, phone, firstName) {
   return new Promise(function (resolve, reject) {
     request(
       {
         method: "POST",
-        url: "https://crm-002b48.appdrag.site/api/register",
-        form: { email: email, password: password, phone: phone, fName: fName },
+        url: "https://jquery-a7b1ae.appdrag.site/api/register",
+        form: {
+          Email: Email,
+          password: password,
+          firstName: firstName,
+          phone: phone,
+        },
       },
       function (err, httpResponse, body) {
         if (err != null) {
           resolve(err);
-          alert("Veuillez bien vérifiez vos données");
-          console.log(err);
         } else {
-          if (resolve.form === null) {
-            console.log("errrrrrr");
-          } else {
-            resolve(body);
-            console.log(body);
-          }
+          resolve(body);
         }
       }
     );
   });
 }
-// var result = registerCB();
+// var result = await registerCB();
 // console.log(result);

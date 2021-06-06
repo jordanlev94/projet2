@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Sidebar.css";
 import { IconContext } from "react-icons";
-import * as IoIcons from "react-icons/io";
+
 import { Context } from "../../ContextProvider";
 
 function Sidebar() {
@@ -58,6 +58,24 @@ function Sidebar() {
                 </Link>
               </li>
             )}
+
+
+{!context.islog && (   
+<li className='nav-text'>
+
+<Link to={"/register"}>
+<AiIcons.AiOutlineSolution/>
+<span> {" S'inscrire"} </span>
+</Link>
+</li>
+)}
+
+
+
+
+
+
+
           </ul>
         </nav>
       </IconContext.Provider>

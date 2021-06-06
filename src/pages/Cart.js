@@ -47,12 +47,15 @@ const Cart = (props) => {
             onRemove={onRemove}
           />
 
-        <b>  {`Taille: ${product.size}`}</b>
+        {/* <b>  {`Taille: ${product.size}`}</b> */}
           <br />
           <b>  {`Quantity: ${product.quantity}`}</b>
         </div>
       ))}
-      <div className='Summ' style={{ backgroundColor: "red" }}><b>{` MONTANT : ${sum} $`}</b> </div>
+     
+     <div className='Summ' style={{ backgroundColor: "red" }}><b>{` MONTANT TOTAL : ${sum} $`}</b> </div>
+
+     <div className=''> <button> PAY </button></div>
     </div>
   );
 };

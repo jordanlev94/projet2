@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Prompt:wght@100&display=swap');
+
+
+
+
+
 .okok{
     
     margin-left: 30px;
 }
 
 .okokok{
-    
+    font-family: 'Amarante', cursive;
     margin-left: 30px;
 }
 
@@ -12,12 +18,15 @@
     font-weight: 400!important;
     margin-bottom: 1rem!important;
     text-align: center;
-    border: black 1px solid;
+    border: grey 3px solid;
  margin-top: 20px;
+ border-radius: 20px;
+ padding: 5px;
+
 }
 
 input,
-.btn{
+.btnn{
   width: 100%;
   padding: 12px;
   border: none;
@@ -84,6 +93,12 @@ color: red
 ;}
 
 
-.btn{
+.btnn:hover{
+    cursor: pointer;
+    background-color: grey;
+}
+
+.registercss{
+    padding-left: 60px;
     
 }

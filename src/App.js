@@ -33,11 +33,11 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/reports' component={Reports} />
-            <Route path='/products' component={Products} />
+            <Route path='/product' component={Products} />
             <Route path='/contact' component={Contact} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Signup} />
-            <Route path="/product/:id"component ={ProductScreen}/>
+            <Route path="/products/:id" component ={ProductScreen}/>
             <Route path="/cart"component ={Cart}/>
             
 

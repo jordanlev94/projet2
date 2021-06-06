@@ -1,9 +1,9 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+
 import Particles from "react-particles-js";
 
 function Reports() {
-  const { t } = useTranslation();
+  
   return (
     <div>
       <Particles
@@ -13,23 +13,43 @@ function Reports() {
               value: 8,
               density: {
                 enable: true,
-                value_area: 800,
+                value_area: 600,
               },
             },
             line_linked: {
               enable: false,
             },
             move: {
-              speed: 2,
+              speed: 3,
               out_mode: "out",
             },
             shape: {
               type: ["image"],
               image: [
                 {
+                  src: "/images/paires1.png",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/paires1.png",
+                  height: 205,
+                  width: 330,
+                },
+                {
                   src: "/images/paires2.png",
-                  height: 340,
-                  width: 340,
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/paires3.png",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/paires2.png",
+                  height: 205,
+                  width: 330,
                 },
                 {
                   src: "/images/paires1.png",
@@ -42,29 +62,9 @@ function Reports() {
                   width: 329,
                 },
                 {
-                  src: "/images/paires4.png",
-                  height: 250,
-                  width: 250,
-                },
-                {
-                  src: "/images/paires2.png",
-                  height: 340,
-                  width: 340,
-                },
-                {
-                  src: "/images/paires1.png",
-                  height: 205,
-                  width: 330,
-                },
-                {
                   src: "/images/paires3.png",
                   height: 207,
                   width: 329,
-                },
-                {
-                  src: "/images/paires4.png",
-                  height: 250,
-                  width: 250,
                 },
               ],
             },
@@ -72,7 +72,7 @@ function Reports() {
               value: "#f0f7ff",
             },
             size: {
-              value: 30,
+              value: 50,
               random: false,
               anim: {
                 enable: true,

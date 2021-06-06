@@ -1,4 +1,5 @@
 export default {
+  //PARAMSSS
   products: [
     {
       _id: "1",

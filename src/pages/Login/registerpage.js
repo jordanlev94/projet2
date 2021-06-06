@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import registerCB from "./register";
-
+import './registerpage.css'
+import ContactsIcon from '@material-ui/icons/Contacts';
 
 const useInputEmail = () => {
   const [value, setValue] = useState(""); // pour changer la value et avoir la possibilité de le remettre à zero
@@ -104,6 +105,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: "black",
+    height: "80px",
+    width: "80px",
+    
   },
 }));
 
@@ -116,41 +120,51 @@ export default function SignUp() {
   const [fName, fNameinput, resetfName] = useInputfName();
 
   return (
+
+
+
+
     <div className="full">
+      <div className='headtext'> <h2> INSCRIPTION </h2></div>
       <div className="container">
-        <div className="row justify-content-md-center pt-5">
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-        </div>
+        <div className="containerr"> 
+        
+
+<div className="headerregister">
+
+
+</div>
+
+
+
         <div className="row justify-content-md-center mt-5">
           <div className="form-group col-md-6 col-12 text-center">
             <label for="email">Email address</label>
-            {emailInput}
+            <div className='form-groupinput'>  {emailInput}</div>
           </div>
         </div>
 
         <div className="row justify-content-md-center">
           <div className="form-group col-md-6 col-12 text-center">
             <label for="password">Password</label>
-            {Passwordinput}
+           <div className='form-groupinput'>  {Passwordinput} </div>
           </div>
         </div>
 
         <div className="row justify-content-md-center">
           <div className="form-group col-md-3 col-12 text-center">
             <label for="fName">Name</label>
-            {fNameinput}
+            <div className='form-groupinput'>  {fNameinput}</div>
           </div>
 
           <div className="form-group col-md-3 col-12 text-center">
             <label for="phone">Phone</label>
-            {Phoneinput}
+            <div className='form-groupinput'>  {Phoneinput}</div>
           </div>
         </div>
 
         <button
-          className="btn btn-primary btn-block col-md-3 mt-3 col-12 mx-auto text-center rounded-pill"
+          className="btn1 -primary btn-block col-md-3 mt-3 col-12 mx-auto text-center rounded-pill"
           type="submit"
           onClick={async () => {
             const result = await registerCB(email, Password, Phone, fName);
@@ -165,8 +179,11 @@ export default function SignUp() {
         </button>
 
         <div className="text-center mb-5 pb-5 mt-5">
-          <Copyright />
+         
+
         </div>
+        
+      </div>
       </div>
     </div>
   );

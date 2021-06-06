@@ -1,42 +1,47 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import data from "../data";
+import data from "../Api/Api";
 import "./Products.css";
-import styled from "styled-components";
-import ProductCard from "../components/Product/ProductCard";
-
+import { Context } from "../ContextProvider";
 
 function Home() {
   const [starClicked, setStarClicked] = useState(false);
+  const [find, setFind] = useState([]);
+  const context = React.useContext(Context);
+  const ActiveFunction = async () => {
+    var result = await data();
+    const CB = JSON.parse(result);
+    var maptable = CB.Table;
+    console.log(maptable[0])
+    setFind(maptable);
+    context.setContextProduct(CB.Table);
+  };
 
-  const css = true ? "product" : "fwdf";
+  React.useEffect(() => {
+    ActiveFunction();
+  }, []);
 
-
-  
   return (
+    <li>
+      <div className="products">
+        {find.map((table) => (
+          <div>
+            <div className="cardtot">
+              <img className="product-image" src={table.image} alt="product" />
+              <div className="product-name">
+                <Link to={"/products/" + table.id}> {table.name} </Link>
+              </div>
+              <div className="product-marque"> {table.marque}</div>
+              <div className="product-prix">
+                <b> {table.prix} $</b>
+              </div>
 
-
-<li>
-  {/* <div> <img src="../../../public/images/bann2.jpg" alt="lol" /> </div> */}
-    <ul className="products">
-
-
-
-      {data.products.map((product) => (
-       
-       
-       <ProductCard 
-          image={product.image}
-          _id={product._id}
-          name={product.name}
-          marque={product.marque}
-          prix={product.prix}
-          size={product.size}
-        
-        />
-
-      ))}
-    </ul></li>
+              <br />
+            </div>
+          </div>
+        ))}
+      </div>
+    </li>
   );
 }
 
