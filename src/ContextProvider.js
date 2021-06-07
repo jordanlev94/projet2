@@ -11,6 +11,7 @@ const ContextProvider = (props) => {
     const [islog, setIslog] = useState(false)
     const [name, setName] = useState('')
     const [contextProduct, setContextProduct] = useState('')
+    
 
     useEffect(() => {
         const uid = localStorage.getItem('uid')

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import data from "../../Api/Apifind";
 import { Context } from "../../ContextProvider";
@@ -14,110 +14,166 @@ function ProductScreen(props) {
 
   const id = props.match.params.id;
 
-  const AddToCart = () => {
+  const AddTocart = () => {
     setDisabled(true);
-    setCart([...cart, { id, quantity }])};
+    setCart([...cart, { id, quantity }]);
+  };
 
-    const onSelect = (event) => {
-      setQuantity(event.target.value);
-    };
+  const onSelect = (event) => {
+    setQuantity(event.target.value);
+  };
 
-    const ActiveFunction = async () => {
-      var result = await data(props.match.params.id);
-      const CB = JSON.parse(result);
+  const ActiveFunction = async () => {
+    var result = await data(props.match.params.id);
+    const CB = JSON.parse(result);
 
-      var bob = CB.Table;
-      var nameTable = bob[0];
+    var bob = CB.Table
+    var nameTable = bob[0]
+    
+    setStateFind(nameTable)
+  };
 
-      setStateFind(nameTable);
-      console.log(stateFind)
-    };
+  React.useEffect(() => {
+    ActiveFunction();
+  }, []);
 
-    React.useEffect(() => {
-      ActiveFunction();
-    }, []);
-
-    return (
-                
-      <div className="cardtot">
+  return (
+    <div className="cardtot">
         <div className="back-to-result">
-          <Link to="/products"> Back to result</Link>
+          <Link to="/product"> Back to result</Link>
         </div>
-        <div className="details">
-          <div className="details-image">
-            <img src={stateFind && stateFind.image} alt="product" />
-          </div>
-          <div className="details-info">
-            <ul>
-              <li>
-                <h4>{stateFind && stateFind.name}</h4>
-              </li>
-              <li>
-                {stateFind && stateFind.rating} Etoiles ({stateFind && stateFind.numReviews})
-              </li>
-              <li>
-                <b>
-                  Price: <b>$ {stateFind && stateFind.prix}</b>
-                </b>
-              </li>
-              <li>
-                <b>Description:</b>
-                <br />
-                <br />
-                <div>{stateFind && stateFind.description}</div>
-              </li>
-              <li>
-                <div>
-                  <b>Couleur affichée : </b>
-                  {stateFind && stateFind.couleur}
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div className="details-action">
-            <ul>
-              <li>
-                Price:<b>$ {stateFind && stateFind.prix}</b>
-              </li>
-
-              <li>
-                Quantité:{" "}
-                <select onChange={onSelect}>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                  <option value={4}>4</option>
-                </select>
-              </li>
-              {/* 
+      <div className="details">
+        <div className="details-image">
+          <img src={stateFind && stateFind.image} alt="product" />
+        </div>
+        <div className="details-info">
+          <ul>
             <li>
-              Size:{" "}
-              <select onChange={onSelectSize}>
-                <option value='35'>35</option>
-                <option value='36'>36</option>
-                <option value='37'>37</option>
-                <option value='38'>38</option>
-                <option value='39'>39</option>
-                <option value={40}>40</option>
-                <option value={41}>41</option>
-                <option value={42}>42</option>
-                <option value={43}>43</option>
+              <h4>{stateFind && stateFind.name}</h4>
+            </li>
+
+            <li>
+              {stateFind && stateFind.rating} Etoiles ( //{" "}
+              {stateFind && stateFind.numReviews})
+            </li>
+
+            <li>
+              <b>
+                Price: <b>$ {stateFind && stateFind.prix}</b>
+              </b>
+            </li>
+
+            <li>
+              <b>Description:</b>
+
+              <br />
+              <br />
+              <div>{stateFind && stateFind.description}</div>
+            </li>
+            <li>
+              <div>
+                <b>Couleur affichée : </b>
+                {stateFind && stateFind.couleur}
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="details-action"> 
+        <ul>
+             <li>
+             Price:<b>$ {stateFind && stateFind.prix}</b>
+             </li>
+
+             <li>
+              Quantité:{" "}
+              <select onChange={onSelect}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
               </select>
+            </li>
+
+            {/* <li>
+              <button disabled={disabled} onClick={AddTocart()}>
+                {" "}
+                Add to Cart
+              </button>
             </li> */}
 
-              <li>
-                <button disabled={disabled} onClick={AddToCart()}>
-                  {" "}
-                  Add to Cart
-                </button>
-              </li>
-            </ul>
-          </div>
+
+        </ul>
+        
         </div>
+
+
+
+
+
       </div>
-    );
- 
+    </div>
+
+    // <div className="cardtot">
+    //   <div className="details">
+    //     <div className="details-image">
+    //       <img src={stateFind && stateFind.image} alt="product" />
+    //     </div>
+    //     <div className="details-info">
+    //       <ul>
+    //         <li>
+    //           <h4>{stateFind && stateFind.name}</h4>
+    //         </li>
+    //         <li>
+    //           {stateFind && stateFind.rating} Etoiles (
+    //           {stateFind && stateFind.numReviews})
+    //         </li>
+    //         <li>
+    //           <b>
+    //             Price: <b>$ {stateFind && stateFind.prix}</b>
+    //           </b>
+    //         </li>
+    //         <li>
+    //           <b>Description:</b>
+    //           <br />
+    //           <br />
+    //           <div>{stateFind && stateFind.description}</div>
+    //         </li>
+    //         <li>
+    //           <div>
+    //             <b>Couleur affichée : </b>
+    //             {stateFind && stateFind.couleur}
+    //           </div>
+    //         </li>
+    //       </ul>
+    //     </div>
+
+    //     <div className="details-action">
+    //       <ul>
+    //         <li>
+    //           Price:<b>$ {stateFind && stateFind.prix}</b>
+    //         </li>
+
+            // <li>
+            //   Quantité:{" "}
+            //   <select onChange={onSelect}>
+            //     <option value={1}>1</option>
+            //     <option value={2}>2</option>
+            //     <option value={3}>3</option>
+            //     <option value={4}>4</option>
+            //   </select>
+            // </li>
+
+            // <li>
+            //   <button disabled={disabled} onClick={AddToCart()}>
+            //     {" "}
+            //     Add to Cart
+            //   </button>
+            // </li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>
+  );
 }
 
 export default ProductScreen;

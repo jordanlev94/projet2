@@ -9,12 +9,13 @@ function Home() {
   const [find, setFind] = useState([]);
   const context = React.useContext(Context);
   const ActiveFunction = async () => {
-    var result = await data();
+    const result = await data();
     const CB = JSON.parse(result);
     var maptable = CB.Table;
     console.log(maptable[0])
     setFind(maptable);
     context.setContextProduct(CB.Table);
+   
   };
 
   React.useEffect(() => {
