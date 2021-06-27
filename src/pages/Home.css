@@ -33,19 +33,15 @@
     justify-content: center;
 }
 
-.card-deck{
-    display: flex;
-    flex-flow: row wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    border: black 1px solid;
-}
 
 .card{
+  
     flex: 1 0;
     margin-right: 15px;
     margin-bottom: 0;
     margin-left: 15px;
+
+
 }
 
 
@@ -82,6 +78,7 @@
     flex-direction: row;
     justify-content: space-around;
     flex-flow: wrap;
+    
   }
   
   .card {
@@ -96,6 +93,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;
+    
   }
   
 
@@ -116,9 +114,11 @@ background-repeat: no-repeat;
     padding: 30px 20px;
     text-align: center;
     font-size: 18px;
+    position: relative;
+   
   }
   
-  .card-body .btn {
+  .btngoto {
     display: block;
     color: #fff;
     text-align: center;
@@ -126,6 +126,8 @@ background-repeat: no-repeat;
     margin-top: 30px;
     text-decoration: none;
     padding: 10px 5px;
+    bottom: 0px;
+    
   }
   
   .card:hover {
@@ -149,9 +151,6 @@ background-repeat: no-repeat;
     .card {
       width: 80%;
     }
-
-
-  
 
 
   

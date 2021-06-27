@@ -3,7 +3,10 @@
     margin-top: 20px;
     border-radius: 20px;
     padding: 5px;
+    width: 300px;
+    backdrop-filter: blur(3px);
 
+    
 }
 
 input,
@@ -32,9 +35,6 @@ input,
     line-height: 20px;
 }
 
-.row{
-    text-align: center;
-}
 
 .btn1:hover{
     cursor: pointer;

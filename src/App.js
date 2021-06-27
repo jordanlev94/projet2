@@ -11,6 +11,9 @@ import Cart from './pages/Cart';
 import ContextProvider from './ContextProvider'
 import Contact from './pages/contact';
 import Signup from './pages/Login/registerpage'
+import PaymentPage from './pages/PaymentPage';
+
+
 const initialState = {user: {}};
 
 function reducer(state, action) {
@@ -39,7 +42,9 @@ function App() {
             <Route path='/register' component={Signup} />
             <Route path="/products/:id" component ={ProductScreen}/>
             <Route path="/cart"component ={Cart}/>
-            
+            <Route path="/payment" component ={PaymentPage}/>
+ 
+
 
           </Switch>
         </ContextProvider>

@@ -1,190 +1,225 @@
-import React, { useState } from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import registerCB from "./register";
-import './registerpage.css'
-import ContactsIcon from '@material-ui/icons/Contacts';
+import React, { useState, useContext } from "react";
+import { Link } from 'react-router-dom'
+import { FirebaseContext } from "../../components/firebase";
 
-const useInputEmail = () => {
-  const [value, setValue] = useState(""); // pour changer la value et avoir la possibilité de le remettre à zero
+import "./registerpage.css";
 
-  const input = (
-    <input
-      value={value}
-      type="email"
-      className="form-control rounded-pill"
-      id="email"
-      aria-describedby="emailHelp"
-      onInput={(event) => {
-        setValue(event.target.value);
-      }}
-    />
-  ); // a modifier ma value, pour lui mettre le contenu de l'iput
+import Particles from "react-particles-js";
 
-  const reset = () => setValue(""); // pour que le input s'efface
+const SignUp = (props) => {
 
-  return [value, input, reset];
-};
+  const firebase = useContext(FirebaseContext);
 
-const useInputPassword = () => {
-  const [Password, setPassword] = useState(""); // pour changer la value et avoir la possibilité de le remettre à zero
+  const data = {
+    pseudo: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
 
-  const Passwordinput = (
-    <input
-      value={Password}
-      type="password"
-      className="form-control rounded-pill"
-      id="password"
-      onInput={(event) => {
-        setPassword(event.target.value);
-      }}
-    />
-  ); // a modifier ma value, pour lui mettre le contenu de l'iput
+  const [loginData, setLoginData] = useState(data);
 
-  const resetPassword = () => setPassword(""); // pour que le input s'efface
+  const [error, setError] = useState("");
+ 
 
-  return [Password, Passwordinput, resetPassword];
-};
+  const handleChange = (e) => {
+    setLoginData({ ...loginData, [e.target.id]: e.target.value });
+  };
 
-const useInputPhone = () => {
-  const [Phone, setPhone] = useState(""); // pour changer la value et avoir la possibilité de le remettre à zero
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = loginData;
+    firebase
+      .signupUser(email, password)
+      .then((user) => {
+        setLoginData({ ...data });
+        props.history.push('/')
+      })
+      .catch((error) => {
+        setError(error);
+        setLoginData({ ...data });
+      });
+  };
 
-  const Phoneinput = (
-    <input
-      value={Phone}
-      type="integer"
-      className="form-control rounded-pill"
-      id="phone"
-      onInput={(event) => {
-        setPhone(event.target.value);
-      }}
-    />
-  ); // a modifier ma value, pour lui mettre le contenu de l'iput
+  const { pseudo, email, password, confirmPassword } = loginData;
 
-  const resetPhone = () => setPhone(""); // pour que le input s'efface
+  const btn =
+    pseudo === "" ||
+    email === "" ||
+    password === "" ||
+    password !== confirmPassword ? (
+      <button disabled> Inscription </button>
+    ) : (
+      <button> Inscription </button>
+    );
 
-  return [Phone, Phoneinput, resetPhone];
-};
-const useInputfName = () => {
-  const [fName, setfName] = useState(""); // pour changer la value et avoir la possibilité de le remettre à zero
+  // gestion erreur
 
-  const fNameinput = (
-    <input
-      value={fName}
-      type="text"
-      className="form-control rounded-pill"
-      id="fName"
-      onInput={(event) => {
-        setfName(event.target.value);
-      }}
-    />
-  ); // a modifier ma value, pour lui mettre le contenu de l'iput
-
-  const resetfName = () => setfName(""); // pour que le input s'efface
-
-  return [fName, fNameinput, resetfName];
-};
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://facebook.com//">
-        AAVA
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const useStyles = makeStyles((theme) => ({
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: "black",
-    height: "80px",
-    width: "80px",
-    
-  },
-}));
-
-export default function SignUp() {
-  const classes = useStyles();
-
-  const [email, emailInput, reset] = useInputEmail();
-  const [Password, Passwordinput, resetPassword] = useInputPassword();
-  const [Phone, Phoneinput, resetPhone] = useInputPhone();
-  const [fName, fNameinput, resetfName] = useInputfName();
+  const errorMsg = error !== "" && <span> {error.message}</span>;
 
   return (
+    <>
+      <div className="divtt" id="welcome">
+        <div className="containerr">
+          <form onSubmit={handleSubmit}>
+            <div className="headtext">
+            {errorMsg}
+              <h2> INSCRIPTION </h2>
+            </div>
 
+            <div className="m-group">
+              <label htmlFor="pseudo"> Pseudo </label>
+              <input
+                id="pseudo"
+                type="text"
+                onChange={handleChange}
+                value={pseudo}
+                autoComplete="off"
+                required
+              />
+            </div>
 
+            <div className="m-group">
+              <label htmlFor="email"> Email </label>
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={handleChange}
+                autoComplete="off"
+                required
+              />
+            </div>
 
-
-    <div className="full">
-      <div className='headtext'> <h2> INSCRIPTION </h2></div>
-      <div className="container">
-        <div className="containerr"> 
-        
-
-<div className="headerregister">
-
-
-</div>
-
-
-
-        <div className="row justify-content-md-center mt-5">
-          <div className="form-group col-md-6 col-12 text-center">
-            <label for="email">Email address</label>
-            <div className='form-groupinput'>  {emailInput}</div>
+            <div className="m-group ">
+              <label htmlFor="password">Password</label>
+              <input  onChange={handleChange}
+                  value={password}
+                  type="password"
+                  id="password"
+                  autoComplete="off"
+                  required />
+            </div>
+            <div className="m-group ">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input  onChange={handleChange}
+                  value={confirmPassword}
+                  type="password"
+                  id="confirmPassword"
+                  autoComplete="off"
+                  required />
+            </div>
+           
+            {btn}
+            
+          </form>
+          <div className="linkContainer"> 
+          <Link className='simpleLink' to='/login'>Deja inscrit? Connectez-vous. </Link>
           </div>
         </div>
-
-        <div className="row justify-content-md-center">
-          <div className="form-group col-md-6 col-12 text-center">
-            <label for="password">Password</label>
-           <div className='form-groupinput'>  {Passwordinput} </div>
-          </div>
-        </div>
-
-        <div className="row justify-content-md-center">
-          <div className="form-group col-md-3 col-12 text-center">
-            <label for="fName">Name</label>
-            <div className='form-groupinput'>  {fNameinput}</div>
-          </div>
-
-          <div className="form-group col-md-3 col-12 text-center">
-            <label for="phone">Phone</label>
-            <div className='form-groupinput'>  {Phoneinput}</div>
-          </div>
-        </div>
-
-        <button
-          className="btn1 -primary btn-block col-md-3 mt-3 col-12 mx-auto text-center rounded-pill"
-          type="submit"
-          onClick={async () => {
-            const result = await registerCB(email, Password, Phone, fName);
-            reset();
-            resetfName();
-            resetPassword();
-            resetPhone();
-            console.log(result);
-          }}
-        >
-          Register
-        </button>
-
-        <div className="text-center mb-5 pb-5 mt-5">
-         
-
-        </div>
-        
       </div>
-      </div>
-    </div>
+
+      <Particles
+        id="particles-js"
+        params={{
+          particles: {
+            number: {
+              value: 20,
+              density: {
+                enable: true,
+                value_area: 900,
+              },
+            },
+            line_linked: {
+              enable: false,
+            },
+            move: {
+              speed: 3,
+              out_mode: "out",
+            },
+            shape: {
+              type: ["image"],
+              image: [
+                {
+                  src: "/images/images1.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images2.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images3.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images4.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images5.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images6.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images7.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images8.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images9.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images10.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images11.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images12.gif",
+                  height: 207,
+                  width: 329,
+                },
+              ],
+            },
+            color: {
+              value: "#f0f7ff",
+            },
+            size: {
+              value: 70,
+              random: false,
+              anim: {
+                enable: true,
+                speed: 5,
+                size_min: 5,
+                sync: false,
+              },
+            },
+          },
+          retina_detect: false,
+        }}
+      />
+    </>
   );
 }
+export default SignUp

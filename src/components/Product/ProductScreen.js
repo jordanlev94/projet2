@@ -16,7 +16,11 @@ function ProductScreen(props) {
 
   const AddTocart = () => {
     setDisabled(true);
-    setCart([...cart, { id, quantity }]);
+    
+    console.log(id)
+    console.log(quantity)
+   setCart([...cart, { id , quantity }]);
+   console.log(cart)
   };
 
   const onSelect = (event) => {
@@ -26,10 +30,10 @@ function ProductScreen(props) {
   const ActiveFunction = async () => {
     var result = await data(props.match.params.id);
     const CB = JSON.parse(result);
-
+    console.log(nameTable)
     var bob = CB.Table
     var nameTable = bob[0]
-    
+    console.log(bob)
     setStateFind(nameTable)
   };
 
@@ -94,12 +98,12 @@ function ProductScreen(props) {
               </select>
             </li>
 
-            {/* <li>
-              <button disabled={disabled} onClick={AddTocart()}>
-                {" "}
-                Add to Cart
-              </button>
-            </li> */}
+            <li>
+               <button className=''  disabled={disabled} onClick={AddTocart}>
+                 {" "}
+aaaaaaaadd
+               </button>
+            </li>
 
 
         </ul>

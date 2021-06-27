@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import './i18n';
+import Firebase, { FirebaseContext } from './components/firebase/'
 
 ReactDOM.render(
+
+
+<FirebaseContext.Provider value = {new Firebase()}>
   <React.StrictMode>
+
+
     <Suspense fallback={(<div>Loading</div>)}>
       <App />
     </Suspense>
-  </React.StrictMode>,
+
+
+  </React.StrictMode>
+  </FirebaseContext.Provider> ,
+  
   document.getElementById('root')
 );
 

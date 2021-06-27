@@ -6,14 +6,16 @@ function Reports() {
   
   return (
     <div>
+      <div id='welcome' > Test </div>
       <Particles
+        id="particles-js"
         params={{
           particles: {
             number: {
-              value: 8,
+              value: 20,
               density: {
                 enable: true,
-                value_area: 600,
+                value_area: 500,
               },
             },
             line_linked: {
@@ -27,42 +29,62 @@ function Reports() {
               type: ["image"],
               image: [
                 {
-                  src: "/images/paires1.png",
+                  src: "/images/images1.gif",
                   height: 205,
                   width: 330,
                 },
                 {
-                  src: "/images/paires1.png",
+                  src: "/images/images2.gif",
                   height: 205,
                   width: 330,
                 },
                 {
-                  src: "/images/paires2.png",
+                  src: "/images/images3.gif",
                   height: 207,
                   width: 329,
                 },
                 {
-                  src: "/images/paires3.png",
+                  src: "/images/images4.gif",
                   height: 207,
                   width: 329,
                 },
                 {
-                  src: "/images/paires2.png",
+                  src: "/images/images5.gif",
                   height: 205,
                   width: 330,
                 },
                 {
-                  src: "/images/paires1.png",
+                  src: "/images/images6.gif",
                   height: 205,
                   width: 330,
                 },
                 {
-                  src: "/images/paires3.png",
+                  src: "/images/images7.gif",
                   height: 207,
                   width: 329,
                 },
                 {
-                  src: "/images/paires3.png",
+                  src: "/images/images8.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images9.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images10.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images11.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images12.gif",
                   height: 207,
                   width: 329,
                 },
@@ -72,12 +94,12 @@ function Reports() {
               value: "#f0f7ff",
             },
             size: {
-              value: 50,
+              value: 70,
               random: false,
               anim: {
                 enable: true,
-                speed: 4,
-                size_min: 10,
+                speed: 3,
+                size_min: 5,
                 sync: false,
               },
             },

@@ -1,178 +1,205 @@
-import React, { useState } from "react";
-// import LogoBootstrap from './bootstrap-solid.svg'
-
-import { Redirect } from "react-router-dom";
-
+import React, { useState, useEffect, useContext } from "react";
+import Particles from "react-particles-js";
 import { Context } from "../../ContextProvider";
 import "./login.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { FirebaseContext } from "../../components/firebase";
 
-
-
-
-
-var request = require("request");
-
-function LoginCB(Email, password) {
-  return new Promise(function (resolve, reject) {
-    request(
-      {
-        method: "POST",
-        url: "https://jquery-a7b1ae.appdrag.site/api/login",
-        form: {
-          Email: Email,
-          password: password,
-          AD_PageNbr: "1",
-          AD_PageSize: "500",
-        },
-      },
-      function (err, httpResponse, body) {
-        if (err != null) {
-          resolve(err);
-        } else {
-          resolve(body);
-        }
-      }
-    );
-  });
-}
-// var result = await loginCB();
-// console.log(result);
-
-const Identification = () => {
-  const context = React.useContext(Context);
-  const [username, setUsername] = useState("");
-  const [error, setError] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [Data, setData] = useState("");
-  const { t } = useTranslation();
-  // let { path, url } = useRouteMatch();
-  // let { id, name } = useParams();
-
-  const onChangeUsername = (event) => {
-    const value = event.target.value;
-    setUsername(value);
-  };
-
+const Identification = (props) => {
+  const firebase = useContext(FirebaseContext);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [btn, setBtn] = useState(false);
 
-  const onChangePassword = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-    setError(false);
+  const context = useContext(Context);
+
+
+
+  useEffect(() => {
+    if (password.length > 5 && email !== "") {
+      setBtn(true);
+    } else if (btn) {
+      setBtn(false);
+    }
+  }, [password, btn]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    firebase
+      .loginUser(email, password)
+      .then((user) => {
+          console.log(user)
+        setEmail("");
+        setPassword("");
+        props.history.push("/");
+        context.setName(user.user.email);
+        context.setIslog(true);
+      })
+      .catch((error) => {
+        setError(error) ;
+        setEmail("");
+        setPassword("");
+
+      });
   };
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-
-    const userCredentials = await LoginCB(username, password);
-
-    if (!userCredentials) {
-      setError(true);
-    } else {
-
-      
-      
-      const data = await LoginCB(username, password);
-      const datajson = JSON.parse(data).Table[0];
-    
-      
-      
-
-    if (datajson !== undefined) {
-
-      context.setIslog(true)
-      context.setName(datajson.firstName);
-      setLoggedIn(true)
-    }
-    else{
-
-      setError(true)
-
-    }
-
-
-
-
-
-
-    }
-
-    console.log("userCredentials", userCredentials);
-  };
-
-  if (loggedIn) {
-    context.setIslog(true);
-    return <Redirect to="/" />;
-  }
-
   return (
-    <div className="container">
-      <div className="okok ">
-        <div className="okokok">
-          <form className="form-signinn">
-            <h1 className="HeaderSignin">{t("Please sign in.1")}</h1>
 
-            <h2 className="inputUsername">{t("Identifiant.7")}</h2>
-            <input
-              type="text"
-              id="inputUsername"
-              className="emailtext"
-              onChange={onChangeUsername}
-              value={username}
-              placeholder="Username"
-              required
-              autofocus
-            />
+    <> 
+    
+    
+    <div className="loginBox">
+      <div className="slContainer">
+        <div className="divtt" id="welcome">
+          <div className="containerr">
+            <form onSubmit={handleSubmit}>
+              <div className="headtext">
 
-            <h2 className="inputPassword">{t("Password.3")}</h2>
-            <input
-              type="password"
-              id="inputPassword"
-              className="passwordinput"
-              value={password}
-              onChange={onChangePassword}
-              placeholder="Password"
-              required
-            />
+                  { error !== '' && <span> { error.message} </span>}
+                <h2> Connexion </h2>
+              </div>
 
-            {error && <div className='errorpassword'>Mauvais mot de passe</div>}
-            <div className="checkbox">
-              <h3>
-               
-                {t("Remember me.4")}
-              </h3>
-              <input type="checkbox" value="remember-me" />
+              <div className="m-group">
+                <label htmlFor="email"> Email </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="off"
+                  required
+                />
+              </div>
+
+              <div className="m-group ">
+                <label htmlFor="password">Password</label>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  type="password"
+                  autoComplete="off"
+                  required
+                />
+              </div>
+
+              {btn ? (
+                <button> Connexion</button>
+              ) : (
+                <button disabled> Connexion</button>
+              )}
+            </form>
+            <div className="linkContainer">
+              <Link className="simpleLink" to="/register">
+                Pas de compte? Inscris toi !!!
+              </Link>
             </div>
-            <button
-              className="btnn"
-              type="submit"
-              onClick={onSubmit}
-              disabled={password === ""}
-            >
-              <h5> {t("Sign in.5")}</h5>
-            </button>
-            <h6>
-              {" "}
-              <p className="date">&copy; 2017-2021</p>
-            </h6>
-          </form>
+          </div>
         </div>
       </div>
-
-
-
-
-
-
-    <div className='registercss'>   <Link to={"/register"}>S'INSCRIRE </Link>  </div>
-
     </div>
-
-
-
-
+   
+    <Particles
+        id="particles-js"
+        params={{
+          particles: {
+            number: {
+              value: 20,
+              density: {
+                enable: true,
+                value_area: 500,
+              },
+            },
+            line_linked: {
+              enable: false,
+            },
+            move: {
+              speed: 3,
+              out_mode: "out",
+            },
+            shape: {
+              type: ["image"],
+              image: [
+                {
+                  src: "/images/images1.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images2.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images3.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images4.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images5.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images6.gif",
+                  height: 205,
+                  width: 330,
+                },
+                {
+                  src: "/images/images7.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images8.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images9.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images10.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images11.gif",
+                  height: 207,
+                  width: 329,
+                },
+                {
+                  src: "/images/images12.gif",
+                  height: 207,
+                  width: 329,
+                },
+              ],
+            },
+            color: {
+              value: "#f0f7ff",
+            },
+            size: {
+              value: 70,
+              random: false,
+              anim: {
+                enable: true,
+                speed: 3,
+                size_min: 5,
+                sync: false,
+              },
+            },
+          },
+          retina_detect: false,
+        }}
+      />
+    </>
   );
 };
 

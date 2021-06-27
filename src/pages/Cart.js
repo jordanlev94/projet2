@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../ContextProvider";
-import ProductCard from "../components/Product/ProductCard";
-import data from "../data";
-import './Login/Cart.css'
+import { Link } from "react-router-dom";
+import './Cart.css'
+
 
 const Cart = (props) => {
   const context = useContext(Context);
@@ -15,7 +15,8 @@ const Cart = (props) => {
     const cartElements = [];
 
     cart.forEach((cartItem) => {
-      const found = data.products.find((item) => item._id === cartItem.id);
+      const contextProduct = context.contextProduct
+      const found = contextProduct.find((item) => item.id == cartItem.id);
       cartElements.push({ ...found, quantity: cartItem.quantity });
     });
     setNewCart(cartElements);
@@ -26,38 +27,70 @@ const Cart = (props) => {
     setSum(sum);
   }, [cart]);
 
+
+  function Confirm(){
+context.setCartcontext(newCart);
+  }
+
+
+
   const onRemove = (id) => {
-    const newCart = cart.filter((item) => item.id !== id);
+    const newCart = cart.filter(item => item.id != id);
     setCart(newCart);
+    
   };
 
   return (
     <div>
-      {newCart.map((product) => (
-        <div key={product._id}>
-          <ProductCard
-            image={product.image}
-            _id={product._id}
-            name={product.name}
-            marque={product.marque}
-            prix={product.prix}
-            numReviews={product.numReviews}
-            rating={product.rating}
-            size={product.size}
-            onRemove={onRemove}
-          />
+      {newCart.map((product , index) => (
+        
+<div key={index} className="users text-dark row justify-content-center ">
 
-        {/* <b>  {`Taille: ${product.size}`}</b> */}
-          <br />
-          <b>  {`Quantity: ${product.quantity}`}</b>
-        </div>
-      ))}
-     
-     <div className='Summ' style={{ backgroundColor: "red" }}><b>{` MONTANT TOTAL : ${sum} $`}</b> </div>
+<div className="col-md-5 m-3">
 
-     <div className=''> <button> PAY </button></div>
-    </div>
-  );
+<div className="Card rounded-lg shadow-lg border text-center pl-4 pr-4 pb-2" >
+<button className='buttoncss' onClick={() => onRemove(product.id)}>
+remove
+</button>
+<br/>
+<img src={product.image} alt="" style={{ height: "200px" }} />
+
+<div className="h2">
+{product.name}
+
+</div>
+
+
+<p>
+{product.description}
+
+</p>
+<div className="lien">
+
+</div>
+
+<div className="lien">
+price:
+{product.prix}
+</div>
+</div>
+
+</div>
+
+</div>
+))}
+<div className="text-center ml-5 mt-5" >
+
+Votre montant total s'élève à :
+<h2 className="text-black"> $
+{` ${sum}`}</h2>
+
+<Link to ='/payment'> <button onClick={Confirm()} className='buttoncss'> PAY </button></Link>
+</div>
+</div>
+)
+        
+
 };
 
 export default Cart;

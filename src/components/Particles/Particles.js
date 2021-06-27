@@ -8,7 +8,7 @@ import Particles from 'react-particles-js';
 	            "value": 8,
 	            "density": {
 	                "enable": true,
-	                "value_area": 800
+	                "value_area": 700
 	            }
 	        },
 	        "line_linked": {
@@ -51,12 +51,12 @@ import Particles from 'react-particles-js';
 	            "value": "#CCC"
 	        },
 	        "size": {
-	            "value": 30,
+	            "value": 40,
 	            "random": false,
 	            "anim": {
 	                "enable": true,
-	                "speed": 4,
-	                "size_min": 10,
+	                "speed": 50,
+	                "size_min": 20,
 	                "sync": false
 	            }
 	        }

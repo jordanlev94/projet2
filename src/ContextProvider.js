@@ -11,7 +11,8 @@ const ContextProvider = (props) => {
     const [islog, setIslog] = useState(false)
     const [name, setName] = useState('')
     const [contextProduct, setContextProduct] = useState('')
-    
+    const [sum, setSum] = useState(0);
+    const [cartcontext, setCartcontext] = useState([])
 
     useEffect(() => {
         const uid = localStorage.getItem('uid')
@@ -31,6 +32,8 @@ const ContextProvider = (props) => {
         setName,
         contextProduct,
         setContextProduct,
+        cartcontext,
+        setCartcontext,
     }
 
     return (
